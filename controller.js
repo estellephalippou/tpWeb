@@ -12,6 +12,11 @@ function Pencil(ctx, drawing, canvas) {
 	new DnD(canvas, this);
 
 	// Implémentez ici les 3 fonctions onInteractionStart, onInteractionUpdate et onInteractionEnd
+
+	interactor.onInteractionStart(this); 
+	interactor.onInteractionUpdate(this); 
+	interactor.onInteractionEnd(this);
 };
+
 
 
