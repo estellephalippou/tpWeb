@@ -75,6 +75,7 @@ function Pencil(ctx, drawing, canvas) {
 	Pencil.prototype.onInteractionEnd = function (dnd) {
 		this.drawing.addForm(this.currentShape);
 		this.drawing.paint(this.ctx, canvas);
+		updateShapeList(this.drawing); 
 		this.currentShape = null; // Réinitialise la forme courante
 	}
 };

@@ -26,3 +26,35 @@ Drawing.prototype.paint = function(ctx) {
     eltDuTableau.paint(ctx);
   });
 };
+
+function updateShapeList(drawing) {
+  const shapeList = document.getElementById("shapeList");
+  shapeList.innerHTML = "";
+
+  drawing.getForms().forEach((shape, index) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = shape instanceof Rectangle 
+      ? `Rectangle (${shape.x}, ${parseInt(shape.y)}, ${shape.width}, ${shape.height})` 
+      : `Line (${shape.x1}, ${parseInt(shape.y1)}, ${shape.x2}, ${parseInt(shape.y2)})`;    
+
+
+    // Ajouter un bouton de suppression avec une icône
+    const deleteButton = document.createElement("button");
+    deleteButton.type = "button";
+    deleteButton.className = "btn btn-default";
+
+    const icon = document.createElement("span");
+    icon.className = "glyphicon glyphicon-remove-sign";
+    deleteButton.appendChild(icon);
+
+    // Ajouter l'événement de suppression
+    deleteButton.addEventListener("click", () => {
+      drawing.getForms().splice(index, 1); // Supprime la forme du tableau
+      drawing.paint(ctx, canvas); // Redessine le canvas
+      updateShapeList(drawing); // Met à jour la liste
+    });
+
+    listItem.appendChild(deleteButton);
+    shapeList.appendChild(listItem);
+  });
+}

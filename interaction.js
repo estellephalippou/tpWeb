@@ -14,7 +14,7 @@ function DnD(canvas, interactor) {
     if (interactor?.onInteractionStart) {
       interactor.onInteractionStart(this);
     }
-    console.log("pression: "  + this.coordonneesFinal.x +" "+this.coordonneesFinal.y);
+    console.log("pression: "  + this.coordonneesFinal.x +" "+parseInt(this.coordonneesFinal.y));
   }.bind(this);
 
   this.deplacement = function (evt) {
@@ -23,7 +23,7 @@ function DnD(canvas, interactor) {
     if (interactor?.onInteractionUpdate) {
       interactor.onInteractionUpdate(this);
     }
-    console.log("deplacement: " + this.coordonneesFinal.x +" "+this.coordonneesFinal.y);
+    console.log("deplacement: " + this.coordonneesFinal.x +" "+parseInt(this.coordonneesFinal.y));
   }.bind(this);
 
   this.relachement = function (evt) {
@@ -33,7 +33,7 @@ function DnD(canvas, interactor) {
     if (interactor?.onInteractionEnd) {
       interactor.onInteractionEnd(this);
     }
-    console.log("relachement: " + this.coordonneesFinal.x +" "+this.coordonneesFinal.y);
+    console.log("relachement: " + this.coordonneesFinal.x +" "+parseInt(this.coordonneesFinal.y));
   }.bind(this);
 
   canvas.addEventListener('mousedown', this.pression);
