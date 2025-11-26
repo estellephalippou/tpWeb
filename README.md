@@ -1,4 +1,4 @@
-TP Web : Javascript et HTML5
+TP Web : Javascript et HTML5 d'Ikram Rehahla et Estelle Phalippou
 
 
 ## 1. Procédure pour lancer les TPs
